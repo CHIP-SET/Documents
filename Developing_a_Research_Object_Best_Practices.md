@@ -1,4 +1,4 @@
-#Developing a Research Object - Best Practice
+#Developing a Research Object - Best Practices
 
 ###Q:  What is the purpose of the research object? (see determining the purpose of a research object using user stories.)  
 
