@@ -10,7 +10,7 @@ There are a number of motivations for creating a research object, some examples 
 - Software publication. 
 - A simple aggregation of resources.   
 
-We are establishing a process of determining the purpose of a research object through the elicitation of User Stories. User stories are a mechanism established in the Agile software development process, they are “short, simple description of a feature told from the perspective of the person who desires the new capability, usually a user or customer of the system.”
+We are establishing a process of determining the purpose of a research object through the elicitation of User Stories. User stories are a mechanism established in the Agile software development process, they are “a short, simple description of a feature told from the perspective of the person who desires the new capability, usually a user or customer of the system.”
 
 A user story typically follows the form: 
 
@@ -35,22 +35,23 @@ The established purpose of the research object should be continually referred to
 
 ### Q:  What resources do you need to share to support that purpose? Is there a minimum information checklist that defines the resources that are required? 
 
-The resources that need to be shared should directly reflect that purpose of the research object. There may be a minimum information checklist that describes the resources that are required for this type of research object.
+The resources that need to be shared should directly reflect the purpose of the research object. For common types of publication there may be recommendations or a minimum information checklist that describes the resources that are required for this type of research object.
 
   
 ###Q:  Do those resources currently reside online or offline? 
  
+Where the resources live can have an impact on other features of the research object such as identity, and the mechanism for serialising the research object for exchange. 
+
 There are three possible scenarios for the collection of resources that make up a research object 
 
-1. All resources currently reside online somewhere, 
+1. All resources currently reside online somewhere and can be referenced via a URI, 
 2.  All resources reside offline, or 
 3.   Resources reside both online and offline. 
 
-Where the resources live ...
+For the purposes of exchange there are two main approaches, the exchange of a **Description** or **Bundle**
 
-Description: For (1) The research object can be simply an aggregation of links/references to those resources. It is then just the description of the aggregation that needs to be shared to effectively share the research object.
-
-Bundle: For (2) and (3) offline resources can either be uploaded to an appropriate repository first, or the resources can be bundled together using some packaging mechanism.  
+ - **Description**: For (1) The research object can be simply an aggregation of links/references to those resources. It is then just the description of the aggregation that needs to be shared to effectively share the research object.
+ -  **Bundle**: For (2) and (3) offline resources can either be uploaded to an appropriate repository first, or the resources can be bundled together using some packaging mechanism.  
 
 ###Q:  What identity mechanism/s currently exist for those resources? 
 
@@ -76,8 +77,23 @@ http://www.w3.org/TR/2014/REC-json-ld-20140116/
 
 ###Q:  What are the licensing requirements/restrictions for each of those resources? 
 
-The licensing of the resources will impact how they can be shared. Most importantly it may affect whether resources can be serialised as part of a research object bundle, or whether they can only be referenced as part of the research object manifest description.  
+The licensing of the resources will impact how they can be shared. 
+
+Most importantly it may affect whether resources can be serialised as part of a research object bundle, or whether they can only be referenced as part of the research object manifest description.  
+
+Consider for example the inclusion of the article text of an existing publication, as is done in the [clinical codes research object](https://github.com/CHIP-SET/clinicalcodes.article5). The associated publication "Withdrawing performance indicators: retrospective analysis of general practice performance under UK Quality and Outcomes Framework" - (dx.doi.org/10.1136/bmj.g330) has been published as an open access article. We are therefore able to serialise the pdf itself as part of the research object bundle, and include it in the manifest as follows: 
+
+	 "aggregates" : [
+	 {
+      "uri" : "http://dx.doi.org/10.1136/bmj.g330",
+      "bundledAs" : {
+        "filename"  : "/bmj.g330.pdf"
+        "proxy" : "urn:uuid:83a3d644-b44a-42b2-b766-8cb269ec3f28"
+      }
+    },
+    ...
  
+If the article's copyright had instead been retained by the publisher, we would be restricted to only providing a URI pointing to the publication and not including the pdf. 
 ###Q:  Do you need to support the exchange and use of the Research Object’s resources offline?  
 
 The ro bundle [Soiland-Reyes. (2013)] mechanism of serialisation is based upon a Zip archive that specialises the Adobe Universal Container Format. The ro bundle contains a manifest file that describes the aggregation. This manifest can refer to files that are part of the Zip archive, or simply refer to resources that are elsewhere via a URI.  
@@ -90,12 +106,14 @@ There are also features from the Provenance and Versioning (PAV) ontology that c
 
 ###Q:  What additional metadata must / should / is optionally required to support the stated purpose of the research object?
 
-As well as metadata relating to licensing, versioning, attribution etc. there may also be domain or purpose specific metadata.   
+As well as metadata relating to licensing, versioning, attribution etc. there may also be domain or purpose specific metadata.   Once again there may be community standards or minimum information checklists for the minimum set of metatdata to provide when sharing a particular type of resources or experimental description. 
 
 ###Q:  What controlled vocabularies currently exist to support the recording of that metadata?  
 
 One aim of research objects is to create a machine readable version of the data or investigation etc. As a result we encourage the use of machine readable vocabularies to create the annotations that describe metadata about the research object. 
 The software ontology [SWO] for example is a structured vocabulary for describing many aspects of the description of software and software development. If the purpose of the research object is to advertise software for reuse then it might be useful to annotate the entry with terms from the SWO to aide discovery. 
+
+
  
 ##References 
 
