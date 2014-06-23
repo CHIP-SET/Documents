@@ -1,4 +1,4 @@
-#Developing a Research Object - Best Practice
+#Developing a Research Object - Best Practices
 
 ###Q:  What is the purpose of the research object? (see determining the purpose of a research object using user stories.)  
 
@@ -73,6 +73,10 @@ http://www.w3.org/TR/json-ld/
 This URL will always resolve to latest version of the spec. Alternatively the following URL identifies a specific version of the specification: 
 
 http://www.w3.org/TR/2014/REC-json-ld-20140116/
+
+Another approach to versioned resources is through the use of [Momento](http://www.mementoweb.org/guide/quick-intro/)  which supports the retrival of previous versions of web resources, allowing for content negotiation based upon a time stamp. 
+
+Alternative approaches may need to be taken when the resource is not under your stewardship, and there is no versioned URI scheme. 
 
 
 ###Q:  What are the licensing requirements/restrictions for each of those resources? 
