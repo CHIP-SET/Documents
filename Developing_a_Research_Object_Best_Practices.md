@@ -60,7 +60,11 @@ An identity mechanism is required for resources that are aggregated in a researc
 1. To be able to talk unambiguously about those resources.
 2. To be able look up those resources. 
 
-The recommendation is to use some form of Permanent Identifier (PIDs) or Permanent URL (PURLs) over standard URIs. If no PID or PURL mechanism exists for a resource and URLs are to be used, they should strive to be COOL [Berners-Lee 98].  A recent paper by [Van de Sompel et al. (2014)] from the Los Alamos National Laboratory describes the relative strengths of URL, PURL and PID identification systems for scholarly publishing. 
+A previous study by [Duerr2011][#Duerr2011] that investigates the utility of identification schemes in  the earth sciences breaks these requirements down further into 4 separate issues: 
+
+* A Unique Identifier: To uniquely and unambiguously identify a particular piece of data, no matter which copy a user has* A Unique Locator: To locate an authoritative copy of the data no matter where they are currently held* A Citable Locator: To identify cited data* Scientifically Unique Identifier: To be able to tell that two data instances contain the same information even if the formats are different
+
+The recommendation is to use some form of Permanent Identifier (PIDs) or Permanent URL (PURLs) over standard URIs. If no PID or PURL mechanism exists for a resource and URLs are to be used, they should strive to be COOL [#Berners-Lee].  A recent paper by *Van de Sompel et al.* [#Van de Sompel et al. (2014)] from the Los Alamos National Laboratory describes the relative strengths of URL, PURL and PID identification systems for scholarly publishing. The authors also highlight a further requirement for the identity scheme to support *content negotiation* so that we can retrieve a machine-readable representation of the artefact represented by the identifier.
 
 ###Q: Do you need to share a specific version of that resource? 
 
@@ -100,13 +104,13 @@ Consider for example the inclusion of the article text of an existing publicatio
 If the article's copyright had instead been retained by the publisher, we would be restricted to only providing a URI pointing to the publication and not including the pdf. 
 ###Q:  Do you need to support the exchange and use of the Research Object’s resources offline?  
 
-The ro bundle [Soiland-Reyes. (2013)] mechanism of serialisation is based upon a Zip archive that specialises the Adobe Universal Container Format. The ro bundle contains a manifest file that describes the aggregation. This manifest can refer to files that are part of the Zip archive, or simply refer to resources that are elsewhere via a URI.  
+The ro bundle [#Soiland-Reyes] mechanism of serialisation is based upon a Zip archive that specialises the Adobe Universal Container Format. The ro bundle contains a manifest file that describes the aggregation. This manifest can refer to files that are part of the Zip archive, or simply refer to resources that are elsewhere via a URI.  
 
 ###Q:  Do you need to manage versioning of the Research Object itself? If so what constitutes a new version of your Research Object?
 
 There are existing mechanisms for versioning of artefacts in different domains. Software versioning for example can be managed using a version control system such as git. 
 
-There are also features from the Provenance and Versioning (PAV) ontology that can be introduced into the manifest to indicate versioning and lineage of a research object. 
+There are also features from the Provenance and Versioning (PAV) ontology[#Pav] that can be introduced into the manifest to indicate versioning and lineage of a research object. 
 
 ###Q:  What additional metadata must / should / is optionally required to support the stated purpose of the research object?
 
@@ -115,18 +119,20 @@ As well as metadata relating to licensing, versioning, attribution etc. there ma
 ###Q:  What controlled vocabularies currently exist to support the recording of that metadata?  
 
 One aim of research objects is to create a machine readable version of the data or investigation etc. As a result we encourage the use of machine readable vocabularies to create the annotations that describe metadata about the research object. 
-The software ontology [SWO] for example is a structured vocabulary for describing many aspects of the description of software and software development. If the purpose of the research object is to advertise software for reuse then it might be useful to annotate the entry with terms from the SWO to aide discovery. 
+The software ontology [#SWO] for example is a structured vocabulary for describing many aspects of the description of software and software development. If the purpose of the research object is to advertise software for reuse then it might be useful to annotate the entry with terms from the SWO to aide discovery. 
 
 
  
 ##References 
 
-**Van de Sompel et al. (2014)**  Persistent Identifiers for Scholarly Assets and the Web: The Need for an Unambiguous Mapping 
+[#Van de Sompel et al. (2014)]: Van de Sompel et al., 2014, **Persistent Identifiers for Scholarly Assets and the Web: The Need for an Unambiguous Mapping** 
 
-**Soiland-Reyes (2013)** Research Object Bundle Specification 
+[#Soiland-Reyes]: Stian Soiland-Reyes **The Research Object Bundle Specification** *https://wf4ever.github.io/ro/bundle/*
 
-**Berners-Lee 1998** http://www.w3.org/Provider/Style/URI
+[#Berners-Lee]: Tim Berners-Lee **COOL URIs**, 1998 *http://www.w3.org/Provider/Style/URI*
 
-**SWO** http://bioportal.bioontology.org/ontologies/SWO
+[#SWO]: **The Software Ontology.** *http://bioportal.bioontology.org/ontologies/SWO*
 
-**Provenance and Versioning (PAV) ontology**  https://code.google.com/p/pav-ontology/
+[#Pav]: The Provenance and Versioning (PAV) ontology  https://code.google.com/p/pav-ontology/
+
+[#Duerr2011]:  Ruth E. Duerr et al., **On the utility of identification schemes for digital earth science data: an assessment and recommendations**
