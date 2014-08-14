@@ -62,7 +62,10 @@ An identity mechanism is required for resources that are aggregated in a researc
 
 A previous study by [Duerr2011][#Duerr2011] that investigates the utility of identification schemes in  the earth sciences breaks these requirements down further into 4 separate issues: 
 
-* A Unique Identifier: To uniquely and unambiguously identify a particular piece of data, no matter which copy a user has* A Unique Locator: To locate an authoritative copy of the data no matter where they are currently held* A Citable Locator: To identify cited data* Scientifically Unique Identifier: To be able to tell that two data instances contain the same information even if the formats are different
+* A Unique Identifier: To uniquely and unambiguously identify a particular piece of data, no matter which copy a user has
+* A Unique Locator: To locate an authoritative copy of the data no matter where they are currently held
+* A Citable Locator: To identify cited data
+* Scientifically Unique Identifier: To be able to tell that two data instances contain the same information even if the formats are different
 
 The recommendation is to use some form of Permanent Identifier (PIDs) or Permanent URL (PURLs) over standard URIs. If no PID or PURL mechanism exists for a resource and URLs are to be used, they should strive to be COOL [#Berners-Lee].  A recent paper by *Van de Sompel et al.* [#Van de Sompel et al. (2014)] from the Los Alamos National Laboratory describes the relative strengths of URL, PURL and PID identification systems for scholarly publishing. The authors also highlight a further requirement for the identity scheme to support *content negotiation* so that we can retrieve a machine-readable representation of the artefact represented by the identifier.
 
@@ -105,6 +108,8 @@ If the article's copyright had instead been retained by the publisher, we would 
 ###Q:  Do you need to support the exchange and use of the Research Object’s resources offline?  
 
 The ro bundle [#Soiland-Reyes] mechanism of serialisation is based upon a Zip archive that specialises the Adobe Universal Container Format. The ro bundle contains a manifest file that describes the aggregation. This manifest can refer to files that are part of the Zip archive, or simply refer to resources that are elsewhere via a URI.  
+
+Consider as well any restrictions of authorisation, and whether certain parts of the research object are restricted, and should only be accessible to certain people. In this case then it would be prefereable for the resources to remain hosted in their original location - so that authentication and authorization remains with the original data provider.
 
 ###Q:  Do you need to manage versioning of the Research Object itself? If so what constitutes a new version of your Research Object?
 
